@@ -1,0 +1,65 @@
+body {
+ font-family: Arial;
+ background: #f4f7fb;
+ padding: 20px;
+}
+
+.container {
+ max-width: 700px;
+ margin: auto;
+ background: white;
+ padding: 20px;
+ border-radius: 10px;
+}
+
+h1 {
+ text-align: center;
+ color: blue;
+}
+
+form {
+ display: grid;
+ gap: 10px;
+ margin-bottom: 20px;
+}
+
+input,
+textarea,
+button {
+ padding: 10px;
+ border-radius: 5px;
+ border: 1px solid #ccc;
+}
+
+button {
+ background: blue;
+ color: white;
+ cursor: pointer;
+}
+
+button:hover {
+ background: darkblue;
+}
+
+.clear-btn {
+ background: red;
+}
+
+.medicine-card {
+ border: 1px solid #ccc;
+ padding: 10px;
+ margin-top: 10px;
+ border-radius: 8px;
+}
+
+.card-actions {
+ margin-top: 10px;
+}
+
+.taken-btn {
+ background: green;
+}
+
+.delete-btn {
+ background: red;
+}
