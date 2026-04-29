@@ -1,6 +1,18 @@
 const form = document.getElementById('medicineForm');
 const list = document.getElementById('medicineList');
 
+const notificationButton = document.getElementById('enableNotifications');
+
+notificationButton.addEventListener('click', () => {
+  if ('Notification' in window) {
+    Notification.requestPermission().then(permission => {
+      alert(`Notification permission: ${permission}`);
+    });
+  } else {
+    alert('Notifications are not supported in this browser.');
+  }
+});
+
 let medicines = JSON.parse(localStorage.getItem('medicines')) || [];
 
 function save() {
@@ -77,9 +89,13 @@ setInterval(() => {
 
   medicines.forEach(med => {
     if (med.time === now && !med.taken) {
-      alert(`Time to take ${med.name}`);
+      if (Notification.permission === 'granted') {
+        new Notification('Medication Reminder', {
+          body: `Time to take ${med.name} (${med.dosage})`
+        });
+      } else {
+        alert(`Time to take ${med.name}`);
+      }
     }
   });
 }, 60000);
-
-display();
