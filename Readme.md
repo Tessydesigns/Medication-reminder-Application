@@ -86,7 +86,7 @@ Medication-Reminder-App/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Tessydesigns/Medication-reminder-Application.git
+git clone https://tessydesigns.github.io/Medication-reminder-Application/
 ```
 
 ### Open the project
