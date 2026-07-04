@@ -1,7 +1,5 @@
 # 💊 Medication Reminder App
 
-# 💊 Medication Reminder App
-
 A responsive Medication Reminder web application built with **HTML**, **CSS**, and **JavaScript**. The application helps users organise their medications, receive reminder notifications, and track whether medications have been taken.
 
 This project is currently a **frontend application** that stores data using the browser's **Local Storage**. A full-stack version with user authentication and cloud storage is planned.
