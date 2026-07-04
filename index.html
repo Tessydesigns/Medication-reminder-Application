@@ -2,32 +2,78 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Medication Reminder</title>
- <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Medication Reminder App</title>
+ <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
  <div class="container">
-  <h1>Medication Reminder App</h1>
-  <p class="subtitle">Add your medicine and reminder time</p>
+  <div class="top-bar">
+   <h1>Medication Reminder</h1>
+   <button id="darkModeBtn">🌙 Dark Mode</button>
+  </div>
+
+  <div class="profile-box">
+   <input type="text" id="profileName" placeholder="Enter profile name">
+   <button onclick="switchProfile()">Switch Profile</button>
+   <p>Current Profile: <strong id="currentProfileText">Default</strong></p>
+  </div>
+
+  <div class="dashboard">
+   <div>Total: <strong id="totalCount">0</strong></div>
+   <div>Taken: <strong id="takenCount">0</strong></div>
+   <div>Missed: <strong id="missedCount">0</strong></div>
+   <div>Upcoming: <strong id="upcomingCount">0</strong></div>
+  </div>
+
   <button id="enableNotifications">Enable Notifications</button>
 
+  <input type="text" id="searchInput" placeholder="Search medication..." />
+
   <form id="medicineForm">
+   <input type="hidden" id="editIndex">
+
    <input type="text" id="medicineName" placeholder="Medication name" required>
-   <input type="text" id="dosage" placeholder="Dosage (e.g. 500mg)" required>
+   <input type="text" id="dosage" placeholder="Dosage e.g. 500mg" required>
    <input type="time" id="time" required>
-   <textarea id="instructions" placeholder="Instructions"></textarea>
-   <button type="submit">Add Medication</button>
+
+   <select id="category">
+    <option value="Morning">Morning</option>
+    <option value="Afternoon">Afternoon</option>
+    <option value="Evening">Evening</option>
+    <option value="Night">Night</option>
+   </select>
+
+   <select id="repeat">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="8hours">Every 8 Hours</option>
+   </select>
+
+   <textarea id="instructions" placeholder="Instructions e.g. Take after food"></textarea>
+
+   <input type="file" id="photo" accept="image/*">
+
+   <button type="submit" id="submitBtn">Add Medication</button>
   </form>
 
   <h2>Your Medications</h2>
   <div id="medicineList"></div>
 
+  <h2>Calendar View</h2>
+  <div id="calendarView"></div>
+
+  <button onclick="exportSchedule()">Export Schedule</button>
+  <button onclick="window.print()">Print Schedule</button>
   <button class="clear-btn" onclick="clearAllMedicines()">Clear All</button>
  </div>
+
+ <audio id="reminderSound">
+  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+ </audio>
 
  <script src="script.js"></script>
 </body>

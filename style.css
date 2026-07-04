@@ -1,65 +1,170 @@
 body {
- font-family: Arial;
+ font-family: Arial, sans-serif;
  background: #f4f7fb;
+ margin: 0;
  padding: 20px;
+ color: #111827;
 }
 
 .container {
- max-width: 700px;
+ max-width: 900px;
  margin: auto;
  background: white;
- padding: 20px;
- border-radius: 10px;
+ padding: 25px;
+ border-radius: 15px;
+ box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.top-bar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+h1,
+h2 {
+ color: #1e40af;
+}
+
+.profile-box,
+.dashboard {
+ background: #eef2ff;
+ padding: 15px;
+ border-radius: 10px;
+ margin-bottom: 15px;
+}
+
+.dashboard {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 10px;
+}
+
+.dashboard div {
+ background: white;
+ padding: 12px;
+ border-radius: 8px;
  text-align: center;
- color: blue;
 }
 
 form {
  display: grid;
- gap: 10px;
- margin-bottom: 20px;
+ gap: 12px;
+ margin: 20px 0;
 }
 
 input,
 textarea,
+select,
 button {
- padding: 10px;
- border-radius: 5px;
+ padding: 12px;
+ border-radius: 8px;
  border: 1px solid #ccc;
+ font-size: 15px;
 }
 
 button {
- background: blue;
+ background: #1e40af;
  color: white;
  cursor: pointer;
+ border: none;
 }
 
 button:hover {
- background: darkblue;
+ background: #1d4ed8;
 }
 
 .clear-btn {
- background: red;
+ background: #dc2626;
+ width: 100%;
+ margin-top: 15px;
 }
 
 .medicine-card {
- border: 1px solid #ccc;
- padding: 10px;
- margin-top: 10px;
+ background: #f9fafb;
+ border: 1px solid #ddd;
+ padding: 15px;
+ margin-top: 12px;
+ border-radius: 10px;
+}
+
+.medicine-card img {
+ width: 100px;
+ height: 100px;
+ object-fit: cover;
  border-radius: 8px;
 }
 
 .card-actions {
+ display: flex;
+ gap: 8px;
+ flex-wrap: wrap;
  margin-top: 10px;
 }
 
 .taken-btn {
- background: green;
+ background: #16a34a;
+}
+
+.edit-btn {
+ background: #f59e0b;
 }
 
 .delete-btn {
- background: red;
+ background: #dc2626;
+}
+
+.snooze-btn {
+ background: #7c3aed;
+}
+
+.taken {
+ color: green;
+ font-weight: bold;
+}
+
+.not-taken {
+ color: red;
+ font-weight: bold;
+}
+
+#calendarView {
+ background: #f9fafb;
+ padding: 15px;
+ border-radius: 10px;
+}
+
+body.dark {
+ background: #111827;
+ color: white;
+}
+
+body.dark .container {
+ background: #1f2937;
+}
+
+body.dark .medicine-card,
+body.dark .dashboard div,
+body.dark #calendarView {
+ background: #374151;
+ color: white;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+ background: #111827;
+ color: white;
+ border: 1px solid #555;
+}
+
+@media (max-width: 600px) {
+ .dashboard {
+  grid-template-columns: 1fr 1fr;
+ }
+
+ .top-bar {
+  flex-direction: column;
+  gap: 10px;
+ }
 }
